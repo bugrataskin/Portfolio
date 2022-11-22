@@ -1,4 +1,6 @@
-CREATE
+CREATE // This is a code for createing graphical database of my UBER data.
+
+// Suburb nodes.
 (ap:SUBURB{name:"ABERFOYLE PARK",zipcode:5159}),
 (aa:SUBURB{name:"ADELAIDE AIRPORT",zipcode:5950}),
 (ac:SUBURB{name:"ADELAIDE CBD",zipcode:5000}),
@@ -85,6 +87,8 @@ CREATE
 (win:SUBURB{name:"WINGFIELD",zipcode:5013}),
 (woo:SUBURB{name:"WOODVILLE",zipcode:5011}),
 (wog:SUBURB{name:"WOODVILLE GARDENS",zipcode:5012}),
+
+// Order nodes.
 
 (order1:ORDER{order_id:"order1",date: '2022-04-16',time: '19:00:00',quantity: 1,delivery_time_minute: 12.65,distance_km: 6.7,uber_pro_level: "Green"}),
 (order2:ORDER{order_id:"order2",date: '2022-04-16',time: '19:15:00',quantity: 2,delivery_time_minute: 32.18,distance_km: 6.9,uber_pro_level: "Green"}),
@@ -1319,6 +1323,8 @@ CREATE
 (order1231:ORDER{order_id:"order1231",date: '2022-10-30',time: '12:41:00',quantity: 1,delivery_time_minute: 34.33,distance_km: 6.2,uber_pro_level: "Diamond"}),
 (order1232:ORDER{order_id:"order1232",date: '2022-10-30',time: '12:23:00',quantity: 1,delivery_time_minute: 29.25,distance_km: 3,uber_pro_level: "Diamond"}),
 (order1233:ORDER{order_id:"order1233",date: '2022-10-30',time: '12:04:00',quantity: 1,delivery_time_minute: 26.57,distance_km: 6,uber_pro_level: "Diamond"}),
+
+// Earning nodes of deliveriy runs.
 
 (order1e:EARNINGS:DELIVERY{total_earnings_AUD: 7.41,base_earning_AUD: 7.41,surge_AUD: 0,tip_AUD :0,boost:"no"}),
 (order2e:EARNINGS:DELIVERY{total_earnings_AUD: 8.85,base_earning_AUD: 8.85,surge_AUD: 0,tip_AUD :0,boost:"no"}),
@@ -2571,6 +2577,8 @@ CREATE
 (order1232e:EARNINGS:DELIVERY{total_earnings_AUD: 15.55,base_earning_AUD: 15.55,surge_AUD: 0,tip_AUD :0,boost:"no"}),
 (order1233e:EARNINGS:DELIVERY{total_earnings_AUD: 9.85,base_earning_AUD: 9.85,surge_AUD: 0,tip_AUD :0,boost:"no"}),
 
+// Relations Orders delivered to theese suburbs.
+
 (order1)-[:DELIVERED_TO]->(noh),
 (order2)-[:DELIVERED_TO]->(osb),
 (order3)-[:DELIVERED_TO]->(heb),
@@ -3805,6 +3813,8 @@ CREATE
 (order1232)-[:DELIVERED_TO]->(mar),
 (order1233)-[:DELIVERED_TO]->(edw),
 
+
+// Relations orders picked up from these suburbs
 (order1)-[:PICKED_UP_FROM]->(noh),
 (order2)-[:PICKED_UP_FROM]->(noh),
 (order3)-[:PICKED_UP_FROM]->(sem),
@@ -5039,6 +5049,8 @@ CREATE
 (order1232)-[:PICKED_UP_FROM]->(ac),
 (order1233)-[:PICKED_UP_FROM]->(mie),
 
+// RElations orders ended up with these earnings
+
 (order1)-[:EARNED]->(order1e),
 (order2)-[:EARNED]->(order2e),
 (order3)-[:EARNED]->(order3e),
@@ -6272,6 +6284,8 @@ CREATE
 (order1231)-[:EARNED]->(order1231e),
 (order1232)-[:EARNED]->(order1232e),
 (order1233)-[:EARNED]->(order1233e),
+
+// relations orders earned extra by completing quest
 
 (order41)-[:QUEST_FULFILLED]->(quest1),
 (order43)-[:QUEST_FULFILLED]->(quest2),
