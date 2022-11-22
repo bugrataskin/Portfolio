@@ -1,4 +1,4 @@
-CREATE // This is a code for createing graphical database of my UBER data.
+CREATE // This is a code for trasforming structured UBER data to unstructered data for creating graphical database.
 
 // Suburb nodes.
 (ap:SUBURB{name:"ABERFOYLE PARK",zipcode:5159}),
